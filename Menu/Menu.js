@@ -22,6 +22,7 @@ let menuItems = [
 const menuButton = document.querySelector(".menu-button");
 
 const createMenu = (items) =>{
+  let open = false;
   const menu = document.createElement("div");
   const menuList = document.createElement("ul");
   menu.classList.add('menu')
@@ -34,8 +35,17 @@ const createMenu = (items) =>{
   });
   menu.append(menuList)
   menuButton.addEventListener('click', ()=>{
+    menu.classList.toggle("menu--open");
+    if (!open){
+      gsap.to(menu, {duration: 0.3, x:350});
+      open = true;
+    }
+    else if (open) {
+      gsap.to(menu, {duration: 0.3, x:-350});
+      open = false;
+    }
 
-    menu.classList.toggle("menu--open")
+
   })
   return menu;
 }
