@@ -85,7 +85,15 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: `Professor Honeydew and Beaker in 2020`,
+    date: `May 5th 2020`,
+    firstParagraph: `Meep Meep Meep Meep, Meep Meep MEEEP!`,
+    secondParagraph: `Meep Meep Meep, Meep Meep Meep, Meep Meep Meep`,
+    thirdParagraph: `Meep Meep Meep Meep Meep Meep MEeep... meep.`
   }
+
 ];
 
 /* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
@@ -114,26 +122,26 @@ function createArticle(Atitle, Adate, p1, p2, p3){
   const first = document.createElement('p')
   const second = document.createElement('p')
   const third = document.createElement('p')
-  const span = document.createElement('span') 
+  const span = document.createElement('span')
+  const spanOpen = document.createElement('button') 
+  const spanClose = document.createElement('button')
 
   //define style
   article.classList.add('article')
   date.classList.add('date')
-  span.classList.add('expandButton')
+  spanOpen.classList.add('expandButton')
+  spanClose.classList.add('expandButton', "hide-btn")
 
 
 
-  article.appendChild(title);
-  article.appendChild(date);
-  article.appendChild(first);
-  article.appendChild(second);
-  article.appendChild(third);
-  article.appendChild(span);
+
   //add content to article
 
 
   const down = "\u25bc"
-  span.textContent = down;
+  const up = "\u25b2"
+  spanOpen.textContent = down;
+  spanClose.textContent = up;
   title.textContent = Atitle;
   date.textContent = Adate;
   first.textContent = p1;
@@ -141,11 +149,14 @@ function createArticle(Atitle, Adate, p1, p2, p3){
   third.textContent = p3;
 
   span.addEventListener('click', ()=>{
-    article.classList.toggle("article-open")
+    article.classList.toggle("article-open");
+    spanOpen.classList.toggle("hide-btn");
+    spanClose.classList.toggle("hide-btn");
   })
 
     //create structure
-  article.append(title, date, first,  second, third, span)
+  span.append(spanClose, spanOpen)
+  article.append(title, date, first,  second, third, span);
 
 /*
 Step 2: Add an event listener to the expandButton span. This event listener should toggle the class 'article-open' on the 'article' div.

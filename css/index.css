@@ -1,5 +1,22 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700");
 /* This line is importing the font 'Roboto'. DO NOT change line 2*/
+@font-face {
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Roboto Italic'), local('Roboto-Italic'), url(https://fonts.gstatic.com/s/roboto/v20/KFOkCnqEu92Fr1Mu51xIIzc.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu4mxP.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Roboto Bold'), local('Roboto-Bold'), url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmWUlfBBc9.ttf) format('truetype');
+}
 /* Below this line is where you will start your work */
 /* It is important to note, you will not be writing any CSS in this file*/
 .header {
@@ -31,6 +48,7 @@
   height: 50px;
   overflow: hidden;
   box-shadow: 2px 2px 2px lightgrey;
+  transition: 1s;
 }
 .article h2 {
   font-size: 28px;
@@ -60,6 +78,10 @@
   height: 400px;
   opacity: 1;
   transition: 1s;
+  display: block;
+}
+.hide-btn {
+  display: none;
 }
 .menu-button {
   position: absolute;
