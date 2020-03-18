@@ -19,13 +19,19 @@ let menuItems = [
     </ul>
   </div>
 */
+//Pulling relivent DOM items
 const menuButton = document.querySelector(".menu-button");
+const menuOpen = document.querySelector(".header");
 
+//creating function to make menu
 const createMenu = (items) =>{
   let open = false;
+  //creating menu html components
   const menu = document.createElement("div");
   const menuList = document.createElement("ul");
+  //add relivent classes for styling
   menu.classList.add('menu')
+  //going through items array and placing each item into a new list item and adds to <ul> menuList
   items.forEach(item => {
     const menuItem = document.createElement("li")
   
@@ -33,9 +39,10 @@ const createMenu = (items) =>{
 
     menuList.appendChild(menuItem)
   });
+  //add generated menuList to menu div
   menu.append(menuList)
+  //listen for click on menu to open and close navigation
   menuButton.addEventListener('click', ()=>{
-    menu.classList.toggle("menu--open");
     if (!open){
       gsap.to(menu, {duration: 0.3, x:350});
       open = true;
@@ -44,12 +51,11 @@ const createMenu = (items) =>{
       gsap.to(menu, {duration: 0.3, x:-350});
       open = false;
     }
-
-
   })
   return menu;
 }
-
+//add menu to active DOM
+menuOpen.append(createMenu(menuItems));
 /*
   The function takes an array as its only argument.
 
@@ -68,5 +74,5 @@ const createMenu = (items) =>{
   Step 6: add the menu component to the DOM.
   
 */
-const menuOpen = document.querySelector(".header");
-menuOpen.append(createMenu(menuItems));
+
+

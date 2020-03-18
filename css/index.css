@@ -42,6 +42,7 @@
 }
 .menu {
   position: fixed;
+  display: block;
   top: 75px;
   left: -350px;
   width: 350px;
@@ -59,9 +60,6 @@
   font-size: 32px;
   padding: 30px 0;
   text-align: center;
-}
-.menu--open {
-  display: block;
 }
 .articles {
   margin-top: 95px;
