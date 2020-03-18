@@ -58,6 +58,8 @@
 }
 .article-open {
   height: 400px;
+  opacity: 1;
+  transition: 1s;
 }
 .menu-button {
   position: absolute;
